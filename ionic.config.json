@@ -1,7 +1,8 @@
 {
   "name": "dasistemas_ionic",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular",
   "id": "019b0856"
