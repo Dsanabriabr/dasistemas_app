@@ -1,19 +1,20 @@
+import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { ApolloQueryResult } from 'apollo-client';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.page.html',
+  styleUrls: ['./dashboard.page.scss'],
 })
-export class HomePage implements OnInit {
+export class DashboardPage implements OnInit {
   users: any[];
   loading = true;
   error: any;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private authService: AuthenticationService, private apollo: Apollo) { }
 
   ngOnInit() {
     this.apollo
@@ -23,8 +24,8 @@ export class HomePage implements OnInit {
             User {
               name
               id
-              avgStars
-              numReviews
+              periodo
+              email
             }
           }
         `,
@@ -35,4 +36,9 @@ export class HomePage implements OnInit {
         this.error = result.errors;
       });
   }
+
+  logout(){
+    this.authService.logout();
+  }
+
 }

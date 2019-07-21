@@ -1,0 +1,74 @@
+
+.wrap-register-v3{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.wrap-interval{
+		width: 100%;
+		position: relative;
+		z-index: 100;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		.core-float{
+			width: 100%;
+		}
+	}
+	.brand{
+		text-align: center;
+		img{
+			margin: 0px auto;
+			height: 90px;
+		}
+	}
+	.bg-img{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 10;
+		img{
+			height: 100%;
+			max-width: unset;
+            min-width: 100%;
+            filter: blur(5px) grayscale(88%);
+		}
+	}
+}
+
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+/* Show background if class is active */
+.show-background {
+    border-style: none;
+    background: var(--ion-color-primary);
+}
+
+/* Remove bottom border on md */
+.header-md::after {
+    background-image: none;
+}
+
+/* Remove bottom border on ios */
+.header-ios ion-toolbar:last-child {
+    --border-width: 0;
+}
+
+ion-button{
+	--padding-start: 7px;
+	--padding-end: 7px;
+}

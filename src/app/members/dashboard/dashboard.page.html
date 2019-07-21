@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-button slot="start" (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+    </ion-button>
+    <ion-title>My Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +16,7 @@
   </div>
   <div *ngIf="users">
     <div *ngFor="let user of users">
-      <p>{{user.name}}: {{user.id}} : {{user.avgStars}} : {{user.numReviews}}</p>
+      <p>{{user.id}}: {{user.name}} : {{user.periodo}} : {{user.email}}</p>
     </div>
   </div>
 </ion-content>

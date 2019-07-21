@@ -1,6 +1,8 @@
 {
   "name": "dasistemas_ionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "019b0856"
 }
