@@ -9,8 +9,26 @@ import { MenuPage } from './menu.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: MenuPage
+    path: 'menu',
+    component: MenuPage,
+    children: [
+      { 
+        path: 'dashboard', 
+        loadChildren: '../dashboard/dashboard.module#DashboardPage'
+      },
+      { 
+        path: 'create-event', 
+        loadChildren: '../create-event/create-event.modules#CreateEventPage'
+      },
+      { 
+        path: 'clubs', 
+        loadChildren: '../clubs/clubs.modules#ClubsPage'
+      },
+      { 
+        path: 'groups', 
+        loadChildren: '../groups/groups.modules#GroupsPage'
+      }
+    ]
   }
 ];
 
