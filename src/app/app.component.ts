@@ -8,9 +8,36 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
+  public appPages = [
+    {
+      title: "Dashboard",
+      url: "members/menu/dashboard",
+      icon: "home"
+    },
+    {
+      title: "Students",
+      url: "members/menu/students",
+      icon: "home"
+    },
+    {
+      title: "Dateam",
+      url: "members/menu/dateam",
+      icon: "home"
+    },
+    {
+      title: "Pucminas",
+      url: "members/menu/pucminas",
+      icon: "home"
+    }
+  ];
+
+  selectedPath = "";
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -21,21 +48,15 @@ export class AppComponent {
     this.initializeApp();
   }
 
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl("/");
+  }
+
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
-      this.authService.authenticationState.subscribe(state => {
-        console.log('Auth changed: ', state);
-        if (state) {
-          this.router.navigate(['members', 'dashboard']);
-        // } else if (this.router.url == "/register"){
-        //   this.router.navigate(['register']);
-        } else {
-          // this.router.navigate(['login']);
-        }
-      });
     });
   }
 }

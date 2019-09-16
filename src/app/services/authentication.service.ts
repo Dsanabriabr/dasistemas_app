@@ -9,25 +9,27 @@ const TOKEN_KEY = 'auth-token';
 })
 export class AuthenticationService {
 
-  public authenticationState = new BehaviorSubject(false);
+  public authenticationState = new BehaviorSubject(null);
 
   constructor(private storage: Storage, private plt: Platform) { 
     this.plt.ready().then(() => {
-      this.checkToken();
+     // check if token saved to open without login page
+      // this.checkToken();
     });
   }
 
   login() {
     return this.storage.set(TOKEN_KEY, 'Baerer 123456').then(res => {
       this.authenticationState.next(true);
+      console.log("tokenSalvo");
     });
   }
 
   logout() {
     return this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next(false);
+      console.log("tokenDeletado");
     });
-
   }
 
   isAuthenticated(){
@@ -36,10 +38,13 @@ export class AuthenticationService {
 
   checkToken(){
     return this.storage.get(TOKEN_KEY).then(res => {
+      console.log("token:", res);
       if (res) {
         this.authenticationState.next(true);
+      } else {
+        this.authenticationState.next(false);
       }
+      console.log("tokenCheck");
     });
-
   }
 }

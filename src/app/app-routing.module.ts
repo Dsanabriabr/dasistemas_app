@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CanActivate, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, CanActivate, RouterModule, Routes, PreloadingStrategy } from '@angular/router';
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
- // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './public/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './public/register/register.module#RegisterPageModule' },
   { path: 'members',
@@ -14,7 +13,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, enableTracing: true})
   ],
   exports: [RouterModule]
 })

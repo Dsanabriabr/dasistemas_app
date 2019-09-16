@@ -8,26 +8,44 @@ import { IonicModule } from '@ionic/angular';
 import { MenuPage } from './menu.page';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: 'menu',
     component: MenuPage,
     children: [
+      {
+        path: "",
+        redirectTo: "menu/(menu:menu)",
+        pathMatch: "full"
+      },
       { 
         path: 'dashboard', 
-        loadChildren: '../dashboard/dashboard.module#DashboardPage'
+        loadChildren: '../dashboard/dashboard.module#DashboardPageModule'
       },
       { 
-        path: 'create-event', 
-        loadChildren: '../create-event/create-event.modules#CreateEventPage'
+        path: 'students', 
+        loadChildren: '../students/students.module#StudentsPageModule'
       },
       { 
-        path: 'clubs', 
-        loadChildren: '../clubs/clubs.modules#ClubsPage'
+        path: 'dateam', 
+        loadChildren: '../dateam/dateam.module#DateamPageModule'
       },
       { 
-        path: 'groups', 
-        loadChildren: '../groups/groups.modules#GroupsPage'
+        path: 'pucminas', 
+        loadChildren: '../pucminas/pucminas.module#PucminasPageModule'
       }
+      // { 
+      //   path: 'create-event', 
+      //   loadChildren: '../create-event/create-event.modules#CreateEventPage'
+      // },
+      // { 
+      //   path: 'clubs', 
+      //   loadChildren: '../clubs/clubs.modules#ClubsPage'
+      // },
+      // { 
+      //   path: 'groups', 
+      //   loadChildren: '../groups/groups.modules#GroupsPage'
+      // }
     ]
   }
 ];

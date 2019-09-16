@@ -15,11 +15,12 @@
 		flex-direction: column;
 		.brand{
 			flex: 1;
-			display: flex;
+			// display: flex;
+			margin-top: 5%;
 			align-items: flex-end;
 			justify-content: center;
 			img{
-				margin: 0px auto 15px auto;
+				margin: 10px auto 15px auto;
 				height: 250px;
 			}
 		}
